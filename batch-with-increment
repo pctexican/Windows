@@ -1,0 +1,14 @@
+@rem robocopy  \\old\dir1 \\newtarget\dir1 MT:16 /NFL /tee /j /z /b /e /COPY:DATS /R:3 /W:5 /log+:D:\DATAMIGRATION\home\LOGS\logfile.txt
+
+
+set cycles=0
+
+:startpoint
+
+set /a cycles=cycles+1
+
+echo %cycles%
+
+robocopy  \\<source> \\<target> MT:16 /NFL /tee /j /z /b /e /COPY:DATS /R:3 /W:5 /log+:D:\DATAMIGRATION\home\LOGS\home-<TARGET>-log-loop-%cycles%.txt
+
+goto startpoint
